@@ -8,8 +8,7 @@ CCSNe are one of the most violents phenomena in the universe, in which diverse p
 Because here we are in the strong gravity regime, GW (stochastic) signals are emitted, and it is expected that this GW carry information about the physical process of the PNS. Indeed, the HFF is one of the signatures of CCSNe GW which contains information about the PNS pulsation, emerging in all current numerical relativity simulations. On time-frequency (TF) spectrograms/scalograms, the HFF has monotonically increasing profile. In Fig. 1 are spectrograms of two simulated CCSNe GW, in which the HFF appears.
 
 ![Andresen2017](Figures/waveforms_numerical.jpg)
-
-<b>Fig 1</b>. Two examples of the HFF in numerical CCSNe GW: Andresen et al 2017, and Kuroda et al 2017.
+<b>Figure 1</b>. Two examples of the HFF in numerical CCSNe GW: Andresen et al 2017, and Kuroda et al 2017.
 
 Until now, CCSNe GW still are not been detected, then we need to anticipate techniques to detect and characterize features as the HFF.
 
@@ -21,9 +20,10 @@ As a first case of study, in this study we developed a robust pipeline to charac
 - <b>Class 2</b>: $1,450 \lt \text{Slope}_{HFF} \lt 1,620$
 - <b>Class 3</b>: $950 \lt \text{Slope}_{HFF} \lt 1,450$
 
-In Fig. 2 we show examples of phenomenological waveforms, with respective scalograms (applying a Morlet wavelet transformation), of each class.
+Fig. 2 shows three representative phenomenological waveforms, each one belonging to each class, depending on the slope of the HFF.
 
-<b>Fig 1</b>. Three representative phenomenological waveforms, each one belonging to each class depending on the slope of the HFF.
+![Phenom_WF](Figures/waveforms_phenom.jpg)
+<b>Figure 2</b>. Scalograms (based on a Morlet Wavelet Transform) of three phenomenological waveforms
 
 This pipeline has two big procedures. Firstly, the generation of a dataset containing time-frequency scalograms as pixelized images; and secondly, the application of a ResNet50 algorithm to perform a a multi-label classification to discriminate images samples depending of their HFFs.
 
