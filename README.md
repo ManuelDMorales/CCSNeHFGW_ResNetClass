@@ -3,9 +3,7 @@ Python pipeline for characterizing the high frequency feature (HFF) present in G
 
 The HFF is a feature which emerges, until now, in all numerical relativity CCSNe simulations; having a fre monotonically increasing frequency on time on spectrograms/scalograms. See Fig. 1
 
-<div style="width:100px;">
 ![Andresen2017](Figures/waveform_Andresen2017_s15nr_spectrogram.jpg) ![Kuroda2017](Figures/waveform_Kuroda2017_S15.0_spectrogram.jpg)
-<div>
   
 Fig 1. Two examples of the HFF in numerical CCSNe GW.
 
