@@ -29,18 +29,18 @@ The procedure is to input class-tagged and pixelized spectrograms of phenomenolo
 
 <b><ins>Pipeline structure</ins></b>
 
-The complete pipeline is included in the Codes folder, and can be sequentially splitted in three stages:
+The pipeline is folder "Codes" and it was though to be sequentially run. It consists in three stages, each one with its respective scripts:
 
 <b>Stage 1, Raw data prepatation</b>
   - <b>Noise_Explorer.ipynb</b>: Noise data download. These data come from the LIGO-Virgo detectors, run O3b, and they are downloaded from the GW Open Science Center. Strain time series and the Amplitude Spectral Densities are explored. Sensibility of the three detectors is compared. Noise strain segments are choosen such that their duration time is $4,096 s$, with sampling frequency $4,096 Hz$.
-  - <b>Waveforms_Preparation.ipynb</b>: We draw on 600 phenomenological CCSNe waveforms (200 each class). This script load all these waveforms and apply a resampling to have the sample sampling frequency of noise dada, and a rescaling by multiplying each waveform by a factor. This waveforms do not included information about the distance of the emitting source, then the choice of the rescaling factor will be motivated by the resulting signal-to-noise ratio, which after the injection, are monitored by the Populations_explorer.ipynb script.
-  - <b>Make_Injections.ipynb</b>: This script apply the software injection procedure by randomly selecting waveforms of one class (which previously were prepared in the previous script). Crucial input parameters of this script are the time difference between injections (dt_inj, in seconds) and the fluctuation range in which the injection will be performed around each injection point (jit_lim, in seconds).     
-  - <b>Prepare_Data.ipynb</b>:
+  - <b>Waveforms_Preparation.ipynb</b>: We draw on 600 phenomenological CCSNe waveforms (200 each class). This script load all these waveforms and apply a resampling to have the sample sampling frequency of noise dada. Moreover, a rescaling is apply by multiplying each waveform by a factor. In numerical simulations of CCSNe GW, choice of this factor is motivated by the distance of the emitting source. However, this phenomenological waveforms does not included information about the distance. Therefore, the choice of the rescaling factor will be motivated by the signal-to-noise ratio (SNR) of GW events which are monitored in the Populations_explorer.ipynb script (see stage 2).
+  - <b>Make_Injections.ipynb</b>: This script apply the software injection procedure by randomly selecting waveforms of one class (which were prepared in the previous script). Crucial input parameters are: time difference between injections (dt_inj, in seconds), fluctuation range around dt_inj in which injections will be performed (jit_lim, in seconds), and time segment around each in which the SNR is computed using the PyCBC library.
+  - <b>Prepare_Data.ipynb</b>: We apply a whitening and a band-pass filtering, in order to approximate noise to a Gaussian process and easily recover injected CCSNe GW. Both procedures are also applied through the PyCBC library. Filter's band is astrophysically motivated, depending on the type of GW that we want to detect. After this pre-processing the Amplitude Spectral Sensity (ASD) is plotted as a check.
 
 <b>Stage 2, Image samples generation</b>
-  - <b>Build_StrainData.ipynb</b>:
-  - <b>Populations_Explorer.ipynb</b>:
-  - <b>Convert_StrainImage.ipynb</b>
+  - <b>Build_StrainData.ipynb</b>: This script generates the window strain samples.
+  - <b>Populations_Explorer.ipynb</b>: Histogram exploration of injected events in window strain samples. SNR values, HFF slopes, etc. SNR exploration is crucial, in order to select scaling factor of phenomenological templates in Waveforms_Preparation.ipynb script.
+  - <b>Convert_StrainImage.ipynb</b>: Conversion of strain samples to images of time-frequency scalograms, applying a Morlet wavelet transformation. Scalograms are pixelized as images of dimension 64x63, with 3 channels (RGB).
 
 <b>Stage 3, ResNet50 classification</b>
   - <b>Apply_ResNet50.ipynb</b>
