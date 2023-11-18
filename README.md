@@ -1,5 +1,5 @@
 # CCSNeHFGW_ResNetClass
-Python pipeline for characterizing the high frequency feature (HFF) in Gravitational Waves (GW) emitted by Core-Collapse Supernovae (CCSNe). This pipeline was implemented as a posterior analysis to GW searching, in order to study the detectability of the HFF given a dataset of samples containg GW events embedded in real LIGO-Virgo noise. Written by Manuel D. Morales, <manueld.morales@academicos.udg.mx>.
+Python implementation for characterizing the high frequency feature (HFF) in Gravitational Waves (GW) emitted by Core-Collapse Supernovae (CCSNe). This implementation begins with the generation of a dataset scalogram images containg GW events embedded in real LIGO-Virgo noise, and then apply a ResNet50 model to classify images according the slope of the HFF present in the scalograms. Written by Manuel D. Morales, <manueld.morales@academicos.udg.mx>.
 
 <b><ins>The astrophysical problem</ins></b>
 
